@@ -477,7 +477,7 @@ export interface ApiNewsletterNewsletter extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
-    newsletter: Attribute.RichText & Attribute.Required;
+    news: Attribute.RichText & Attribute.Required;
     publishedAt: Attribute.DateTime;
     title: Attribute.String & Attribute.Required;
     updatedAt: Attribute.DateTime;

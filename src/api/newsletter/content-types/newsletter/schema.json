@@ -16,7 +16,7 @@
       "type": "string",
       "required": true
     },
-    "newsletter": {
+    "news": {
       "type": "richtext",
       "required": true
     }
