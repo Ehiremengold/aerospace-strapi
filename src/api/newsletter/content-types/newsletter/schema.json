@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "newsletters",
   "info": {
     "singularName": "newsletter",
@@ -12,11 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "News": {
-      "type": "richtext"
-    },
     "title": {
       "type": "string",
+      "required": true
+    },
+    "newsletter": {
+      "type": "richtext",
       "required": true
     }
   }

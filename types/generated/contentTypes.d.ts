@@ -458,7 +458,7 @@ export interface ApiJobJob extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewsletterNewsletter extends Schema.CollectionType {
+export interface ApiNewsletterNewsletter extends Schema.SingleType {
   collectionName: 'newsletters';
   info: {
     description: '';
@@ -477,7 +477,7 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
-    News: Attribute.RichText;
+    newsletter: Attribute.RichText & Attribute.Required;
     publishedAt: Attribute.DateTime;
     title: Attribute.String & Attribute.Required;
     updatedAt: Attribute.DateTime;
