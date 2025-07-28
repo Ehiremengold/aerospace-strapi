@@ -479,7 +479,7 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
       Attribute.Private;
     News: Attribute.RichText;
     publishedAt: Attribute.DateTime;
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::newsletter.newsletter',
