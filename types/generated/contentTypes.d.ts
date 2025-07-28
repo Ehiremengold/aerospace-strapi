@@ -458,38 +458,6 @@ export interface ApiJobJob extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewsletterNewsletter extends Schema.SingleType {
-  collectionName: 'newsletters';
-  info: {
-    description: '';
-    displayName: 'Newsletter';
-    pluralName: 'newsletters';
-    singularName: 'newsletter';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::newsletter.newsletter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    news: Attribute.RichText & Attribute.Required;
-    publishedAt: Attribute.DateTime;
-    title: Attribute.String & Attribute.Required;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::newsletter.newsletter',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
@@ -929,7 +897,6 @@ declare module '@strapi/types' {
       'api::application.application': ApiApplicationApplication;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::job.job': ApiJobJob;
-      'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
