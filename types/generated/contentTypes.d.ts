@@ -461,6 +461,7 @@ export interface ApiJobJob extends Schema.CollectionType {
 export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   collectionName: 'newsletters';
   info: {
+    description: '';
     displayName: 'Newsletter';
     pluralName: 'newsletters';
     singularName: 'newsletter';
@@ -478,6 +479,7 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
       Attribute.Private;
     News: Attribute.RichText;
     publishedAt: Attribute.DateTime;
+    title: Attribute.String;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
       'api::newsletter.newsletter',
