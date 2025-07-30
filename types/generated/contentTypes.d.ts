@@ -434,6 +434,41 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactUsContactUs extends Schema.CollectionType {
+  collectionName: 'contact_uses';
+  info: {
+    description: '';
+    displayName: 'Contact Us';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    Email: Attribute.Email & Attribute.Required;
+    Message: Attribute.Text & Attribute.Required;
+    Name: Attribute.String & Attribute.Required;
+    publishedAt: Attribute.DateTime;
+    Subject: Attribute.String & Attribute.Required;
+    Telephone: Attribute.String;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::contact-us.contact-us',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiJobJob extends Schema.CollectionType {
   collectionName: 'jobs';
   info: {
@@ -927,6 +962,7 @@ declare module '@strapi/types' {
       'admin::user': AdminUser;
       'api::application.application': ApiApplicationApplication;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::job.job': ApiJobJob;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'plugin::content-releases.release': PluginContentReleasesRelease;
