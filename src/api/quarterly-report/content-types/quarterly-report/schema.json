@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quarterly_reports",
+  "info": {
+    "singularName": "quarterly-report",
+    "pluralName": "quarterly-reports",
+    "displayName": "QuarterlyReport"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quarter": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "typeOfContent": {
+      "type": "enumeration",
+      "enum": [
+        "PDF",
+        "Audio"
+      ],
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true,
+      "maxLength": 4
+    },
+    "mediaFile": {
+      "allowedTypes": [
+        "files",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
