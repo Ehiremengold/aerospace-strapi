@@ -524,45 +524,6 @@ export interface ApiNewsletterNewsletter extends Schema.SingleType {
   };
 }
 
-export interface ApiQuarterlyReportQuarterlyReport
-  extends Schema.CollectionType {
-  collectionName: 'quarterly_reports';
-  info: {
-    description: '';
-    displayName: 'QuarterlyReport';
-    pluralName: 'quarterly-reports';
-    singularName: 'quarterly-report';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::quarterly-report.quarterly-report',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    file: Attribute.Media<'files' | 'audios'> & Attribute.Required;
-    publishedAt: Attribute.DateTime;
-    quarter: Attribute.Enumeration<['Q1', 'Q2', 'Q3', 'Q4']>;
-    title: Attribute.String & Attribute.Required;
-    typeOfContent: Attribute.Enumeration<['PDF', 'Audio']>;
-    updatedAt: Attribute.DateTime;
-    updatedBy: Attribute.Relation<
-      'api::quarterly-report.quarterly-report',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    year: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 4;
-      }>;
-  };
-}
-
 export interface PluginContentReleasesRelease extends Schema.CollectionType {
   collectionName: 'strapi_releases';
   info: {
@@ -1004,7 +965,6 @@ declare module '@strapi/types' {
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::job.job': ApiJobJob;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
-      'api::quarterly-report.quarterly-report': ApiQuarterlyReportQuarterlyReport;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
