@@ -493,12 +493,13 @@ export interface ApiJobJob extends Schema.CollectionType {
   };
 }
 
-export interface ApiNewsletterNewsletter extends Schema.SingleType {
-  collectionName: 'newsletters';
+export interface ApiQuarterlyReportQuarterlyReport
+  extends Schema.CollectionType {
+  collectionName: 'quarterly_reports';
   info: {
-    displayName: 'Newsletter';
-    pluralName: 'newsletters';
-    singularName: 'newsletter';
+    displayName: 'QuarterlyReport';
+    pluralName: 'quarterly-reports';
+    singularName: 'quarterly-report';
   };
   options: {
     draftAndPublish: true;
@@ -506,21 +507,29 @@ export interface ApiNewsletterNewsletter extends Schema.SingleType {
   attributes: {
     createdAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::newsletter.newsletter',
+      'api::quarterly-report.quarterly-report',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
-    news: Attribute.RichText;
+    file: Attribute.Media<'files' | 'audios'> & Attribute.Required;
     publishedAt: Attribute.DateTime;
-    title: Attribute.String;
+    quarter: Attribute.Enumeration<['QI', 'Q2', 'Q3', 'Q4']> &
+      Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    typeOfContent: Attribute.Enumeration<['PDF', 'Audio']>;
     updatedAt: Attribute.DateTime;
     updatedBy: Attribute.Relation<
-      'api::newsletter.newsletter',
+      'api::quarterly-report.quarterly-report',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
+    year: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 4;
+      }>;
   };
 }
 
@@ -964,7 +973,7 @@ declare module '@strapi/types' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::job.job': ApiJobJob;
-      'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::quarterly-report.quarterly-report': ApiQuarterlyReportQuarterlyReport;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
