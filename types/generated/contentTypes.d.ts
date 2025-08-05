@@ -497,6 +497,7 @@ export interface ApiQuarterlyReportQuarterlyReport
   extends Schema.CollectionType {
   collectionName: 'quarterly_reports';
   info: {
+    description: '';
     displayName: 'QuarterlyReport';
     pluralName: 'quarterly-reports';
     singularName: 'quarterly-report';
@@ -514,7 +515,7 @@ export interface ApiQuarterlyReportQuarterlyReport
       Attribute.Private;
     file: Attribute.Media<'files' | 'audios'> & Attribute.Required;
     publishedAt: Attribute.DateTime;
-    quarter: Attribute.Enumeration<['QI', 'Q2', 'Q3', 'Q4']> &
+    quarter: Attribute.Enumeration<['Q1', 'Q2', 'Q3', 'Q4']> &
       Attribute.Required;
     title: Attribute.String & Attribute.Required;
     typeOfContent: Attribute.Enumeration<['PDF', 'Audio']>;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "quarterly-report",
     "pluralName": "quarterly-reports",
-    "displayName": "QuarterlyReport"
+    "displayName": "QuarterlyReport",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
     "quarter": {
       "type": "enumeration",
       "enum": [
-        "QI",
+        "Q1",
         "Q2",
         "Q3",
         "Q4"
@@ -26,13 +27,13 @@
       "required": true
     },
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "files",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "typeOfContent": {
       "type": "enumeration",
