@@ -513,7 +513,7 @@ export interface ApiQuarterlyReportQuarterlyReport
       'admin::user'
     > &
       Attribute.Private;
-    file: Attribute.Media<'files' | 'audios'> & Attribute.Required;
+    mediaFile: Attribute.Media<'files' | 'audios'> & Attribute.Required;
     publishedAt: Attribute.DateTime;
     quarter: Attribute.Enumeration<['Q1', 'Q2', 'Q3', 'Q4']> &
       Attribute.Required;
